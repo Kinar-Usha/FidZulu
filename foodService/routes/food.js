@@ -20,7 +20,6 @@ router.get('/all/:location', async function(req, res, next) {
 
 
 router.get('/team',function(req,res,next){
-  console.log("in team request");
   const result=food.foodServiceTeam();
   if (result) {
     res.setHeader('content-type', 'application/json');
