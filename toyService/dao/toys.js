@@ -1,4 +1,4 @@
-const { Console, log } = require('console');
+
 const path= require('path');
 const rootPath= path.resolve(__dirname, '../../');
 const filepath=path.join(rootPath, 'resources/Toysjson.json');
