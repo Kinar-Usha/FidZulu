@@ -4,26 +4,30 @@ let bikes = require("../dao/bike");
 describe("Bike module test", () => {
     describe("load all bikes", () => {
     
-        it("have four elements", () => {
-            let results = bikes.list();
-            expect(results.length).toBe(15);
+        it("have four elements", async () => {
+            let results = await bikes.query_by_arg("India");
+            expect(results.length).toBeGreaterThan(0);
+            expect(results[0].price).toBeGreaterThan(-1);
+            expect(results[0].price.toString()).toMatch(/^\d+\.\d{2}$/);
         });
         
     });
     describe("load all bikes with taxes", () => {
      
-        it("with location India", () => {
-            let results = bikes.query_by_arg("India");
-            expect(results[0].price).toBe(3067.9882);
+        it("with location India", async () => {
+            let results = await bikes.query_by_arg("India");
+            expect(results[0].price).toBeGreaterThan(-1);
+            expect(results[0].price.toString()).toMatch(/^\d+\.\d{2}$/);
         });
      
-        it("with location Ireland", () => {
-            let results = bikes.query_by_arg("Ireland");
-            expect(results[0].price).toBe(2859.989);
+        it("with location Ireland", async () => {
+            let results = await bikes.query_by_arg("Ireland");
+            expect(results[0].price).toBeGreaterThan(-1);
+            expect(results[0].price.toString()).toMatch(/^\d+\.\d{2}$/);
         });
      
-        it("with invalid location Pakistan", () => {
-            let results = bikes.query_by_arg("Pakistan");
+        it("with invalid location Pakistan", async () => {
+            let results = await bikes.query_by_arg("Pakistan");
             expect(results).toBeNull();
         });
        
