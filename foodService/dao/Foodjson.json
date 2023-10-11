@@ -1,0 +1,40 @@
+[
+  {
+    "productId": 2001,
+    "productName": "Oreo",
+    "productDescription": "Creamier Inside",
+    "price": 2.85,
+    "rating":4.5,
+    "dateOfManufacture":"27-08-2022",
+    "bestBefore":"27-08-2023",
+    "calories": 405,
+    "vegetarian":true,
+    "imageUrl":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.walmart.ca%2Fen%2Fip%2FOreo-Original-Sandwich-Cookies-270G%2F6000202891572&psig=AOvVaw07ZStAnZRvI_Ig9rNxmyv5&ust=1697044187143000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCJjIsrL864EDFQAAAAAdAAAAABAG"
+  },
+  {
+    "productId": 2002,
+    "productName": "Oreo",
+    "productDescription": "Creamier Inside",
+    "price": 2.85,
+    "rating":4.5,
+    "dateOfManufacture":"27-08-2022",
+    "bestBefore":"27-08-2023",
+    "calories": 405,
+    "vegetarian":true,
+    "imageUrl":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.walmart.ca%2Fen%2Fip%2FOreo-Original-Sandwich-Cookies-270G%2F6000202891572&psig=AOvVaw07ZStAnZRvI_Ig9rNxmyv5&ust=1697044187143000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCJjIsrL864EDFQAAAAAdAAAAABAG"
+  },
+  {
+    "productId": 2003,
+    "productName": "Oreo",
+    "productDescription": "Creamier Inside",
+    "price": 2.85,
+    "rating":4.5,
+    "dateOfManufacture":"27-08-2022",
+    "bestBefore":"27-08-2023",
+    "calories": 405,
+    "vegetarian":true,
+    "imageUrl":"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.walmart.ca%2Fen%2Fip%2FOreo-Original-Sandwich-Cookies-270G%2F6000202891572&psig=AOvVaw07ZStAnZRvI_Ig9rNxmyv5&ust=1697044187143000&source=images&cd=vfe&opi=89978449&ved=0CA8QjRxqFwoTCJjIsrL864EDFQAAAAAdAAAAABAG"
+  }
+  
+
+]
