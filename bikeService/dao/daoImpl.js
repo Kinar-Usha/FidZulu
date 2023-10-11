@@ -1,11 +1,10 @@
 const AWS = require('aws-sdk');
-const dotenv = require('dotenv');
+const dotenv= require('dotenv');
 const path= require('path');    
 const fs= require('fs');
-const rootPath= path.resolve(__dirname, '../');
-dotenv.config({ path: path.resolve(rootPath, './.env') })
-const jsonRootPath= path.resolve(__dirname, '../../');
-const filepath=path.join(jsonRootPath, 'resources/Bikejson.json');
+
+dotenv.config({path: path.resolve(__dirname, '../.env')});
+const filepath=path.join(__dirname, './Bikejson.json');
 
 var circuitBreakerFlag=false
 if (process.env.AWS_REGION && process.env.AWS_ACCESS_KEY_ID && process.env.AWS_SECRET_ACCESS_KEY) {
