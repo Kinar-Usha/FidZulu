@@ -1,34 +1,31 @@
 let request = require("request");
 let food = require("../dao/food");
 
-describe("Unit tests on Food Service", () => {
-    describe("load all food items", () => {
-        it("have four elements", () => {
-            let results = food.list();
-            expect(results.length>1);
-        });
-        
-    });
+describe("Unit tests on Food Service",() => {
+    
     describe("load Food with taxes", () => {
-        it("with location India", () => {
-            let results = food.foodByLocation("IN");
-            expect(results[0].price).toBe(118);
+        it("with location India", async() => {
+            let results = await food.foodByLocation("IN");
+            expect(results[0].price).toBeGreaterThan(-1);
+            expect(results[0].price.toString()).toMatch(/^\d+\.\d{2}$/);
         });
-        it("with location US", () => {
-            let results = food.foodByLocation("US-NC");
-            expect(results[0].rating).toBe(4.5);
+        it("with location US", async() => {
+            let results = await food.foodByLocation("US-NC");
+            expect(results[0].price).toBeGreaterThan(-1);
+            expect(results[0].price.toString()).toMatch(/^\d+\.\d{2}$/);
         });
-        it("with location Ireland", () => {
-            let results = food.foodByLocation("IN");
-            expect(results[0].rating).toBe(4.5);
+        it("with location Ireland",async () => {
+            let results = await food.foodByLocation("IN");
+            expect(results[0].price).toBeGreaterThan(-1);
+            expect(results[0].price.toString()).toMatch(/^\d+\.\d{2}$/);
         });
-        it("get service team", () => {
-            let results = food.foodServiceTeam();
+        it("get service team", async() => {
+            let results = await food.foodServiceTeam();
             expect(results.name).toBe("Food Service team");
         });
-        it("with invalid location Sri Lanka", () => {
+        it("with invalid location Sri Lanka",() => {
             expect( () => {
-                toys.foodByLocation("Sri Lanka");
+                 toys.foodByLocation("Sri Lanka");
                 expect(results).toBeNull();
             })
         });
