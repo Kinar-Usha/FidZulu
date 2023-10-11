@@ -6,6 +6,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
+    "ci": "for dir in bikeService foodService toyService; do (cd $dir && npm install); done",
     "start": "concurrently \"node ./bikeService/bin/www\" \"node ./foodService/bin/www\" \"node ./toyService/bin/www\"",
     "devStart": "concurrently \"nodemon ./bikeService/bin/www\" \"nodemon ./foodService/bin/www\" \"nodemon ./toyService/bin/www\"",
     "test":"concurrently \"npm test --prefix ./bikeService\" \"npm test --prefix ./foodService\" \"npm test --prefix ./toyService\""
