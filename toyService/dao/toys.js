@@ -15,7 +15,6 @@ exports.query_by_arg = async(value) =>{
      try {
     // Use the asynchronous DAO function to get data from DynamoDB
     const data = await getAllDataFromDynamoDB();
-    console.log(data)
     // Process the data based on the location value
     const results = data.map((item) => {
       const resultItem = { ...item };

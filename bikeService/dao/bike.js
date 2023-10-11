@@ -15,7 +15,6 @@ exports.query_by_arg = async(value) =>{
      try {
     // Use the asynchronous DAO function to get data from DynamoDB
     const data = await getAllDataFromDynamoDB();
-    // console.log(data)
     // Process the data based on the location value
     const results = data.map((item) => {
       const resultItem = { ...item };
@@ -25,10 +24,8 @@ exports.query_by_arg = async(value) =>{
         resultItem.price *= 1.08;
       }
       resultItem.price = parseFloat(resultItem.price.toFixed(2));
-    //   console.log("Results   ========>",resultItem);
       return resultItem;
     });
-    console.log("Results   ========>",results);
     return results;
   } catch (error) {
     console.error('Error querying data from DynamoDB:', error);

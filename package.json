@@ -6,10 +6,10 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "start": "concurrently \"node -r .env ./bikeService/bin/www\" \"node -r dotenv/config ./foodService/bin/www\" \"node -r dotenv/config ./toyService/bin/www\"",
-    "devStart": "concurrently \"nodemon -r dotenv/config ./bikeService/bin/www\" \"nodemon -r dotenv/config ./foodService/bin/www\" \"nodemon -r dotenv/config ./toyService/bin/www\"",
-    "test": "concurrently \"npm test --prefix ./bikeService\" \"npm test --prefix ./foodService\" \"npm test --prefix ./toyService\""
-},
+    "start": "concurrently \"node ./bikeService/bin/www\" \"node ./foodService/bin/www\" \"node ./toyService/bin/www\"",
+    "devStart": "concurrently \"nodemon ./bikeService/bin/www\" \"nodemon ./foodService/bin/www\" \"nodemon ./toyService/bin/www\"",
+    "test":"concurrently \"npm test --prefix ./bikeService\" \"npm test --prefix ./foodService\" \"npm test --prefix ./toyService\""
+  },
   "dependencies": {
     "concurrently": "^8.2.1",
     "cookie-parser": "^1.4.6",

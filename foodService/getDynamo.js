@@ -16,7 +16,6 @@ const tableName = 'fz_food';
 
 // Function to get all items from DynamoDB
 function getAllDataFromDynamoDB() {
-    console.log(process.env.AWS_REGION)
 
   const params = {
     TableName: tableName,

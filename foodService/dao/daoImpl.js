@@ -1,6 +1,8 @@
 const AWS = require('aws-sdk');
-require('dotenv').config();
-
+const dotenv = require('dotenv');
+const path= require('path');    
+const rootPath= path.resolve(__dirname, '../');
+dotenv.config({ path: path.resolve(rootPath, './.env') })
 
 // Configure your AWS credentials
 AWS.config.update({
@@ -19,7 +21,6 @@ const tableName = 'fz_food';
 
 // Function to get all items from DynamoDB
 function getAllDataFromDynamoDB() {
-  console.log(process.env.AWS_REGION)
 
   const params = {
     TableName: tableName,
