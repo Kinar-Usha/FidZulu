@@ -5,19 +5,20 @@
   "main": "app.js",
   "scripts": {
     "start": "node ./bin/www",
-    "test": "jasmine-node --captureExceptions spec"
+    "test": "jasmine"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "cookie-parser": "^1.4.6",
-        "debug": "^4.3.4",
-        "express": "^4.18.2",
-        "http-errors": "^2.0.0",
-        "morgan": "^1.10.0",
-        "request": "^2.88.2"
+    "debug": "^4.3.4",
+    "express": "^4.18.2",
+    "http-errors": "^2.0.0",
+    "morgan": "^1.10.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {
+    "jasmine": "^5.1.0",
     "jasmine-node": "^3.0.0"
   }
 }

@@ -15,7 +15,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 
 
-app.use('/food', foodRouter);
+app.use('/foodService', foodRouter);
 
 
 app.use(function(req, res, next) {

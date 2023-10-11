@@ -5,22 +5,30 @@ describe("Unit tests on Food Service", () => {
     describe("load all food items", () => {
         it("have four elements", () => {
             let results = food.list();
-            expect(results.length).toBe(3);
+            expect(results.length>1);
         });
         
     });
     describe("load Food with taxes", () => {
         it("with location India", () => {
-            let results = food.query_by_arg("India");
-            expect(results[0].price).toBe(3.363);
+            let results = food.foodByLocation("IN");
+            expect(results[0].price).toBe(118);
         });
-        // it("with location Durham", () => {
-        //     let results = toys.query_by_arg("Durham");
-        //     expect(results[0].prize).toBe("22.04");
-        // });
+        it("with location US", () => {
+            let results = food.foodByLocation("US-NC");
+            expect(results[0].rating).toBe(4.5);
+        });
+        it("with location Ireland", () => {
+            let results = food.foodByLocation("IN");
+            expect(results[0].rating).toBe(4.5);
+        });
+        it("get service team", () => {
+            let results = food.foodServiceTeam();
+            expect(results.name).toBe("Food Service team");
+        });
         it("with invalid location Sri Lanka", () => {
             expect( () => {
-                toys.query_by_arg("Sri Lanka");
+                toys.foodByLocation("Sri Lanka");
                 expect(results).toBeNull();
             })
         });

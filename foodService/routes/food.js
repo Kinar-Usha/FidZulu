@@ -16,11 +16,11 @@ const food = require("../dao/food");
 //   }
 // });
 
-router.get('/:location', function(req, res, next) {
+router.get('/all/:location', function(req, res, next) {
     const param = req.params.location;
     console.log('got into food/:location ' + param);
   
-    const result = food.query_by_arg(
+    const result = food.foodByLocation(
       param);
     if (result) {
       res.setHeader('content-type', 'application/json');
@@ -29,6 +29,18 @@ router.get('/:location', function(req, res, next) {
       next(createError(404));
     }
 });
+
+
+router.get('/team',function(req,res,next){
+  console.log("in team request");
+  const result=food.foodServiceTeam();
+  if (result) {
+    res.setHeader('content-type', 'application/json');
+    res.json((result));
+  } else {
+    next(createError(404));
+  }
+})
 
 
 module.exports = router;
