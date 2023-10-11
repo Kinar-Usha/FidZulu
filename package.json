@@ -11,7 +11,9 @@
     "test":"concurrently \"npm test --prefix ./bikeService\" \"npm test --prefix ./foodService\" \"npm test --prefix ./toyService\""
   },
   "dependencies": {
-    "concurrently": "^8.2.1"
+    "concurrently": "^8.2.1",
+    "cookie-parser": "^1.4.6",
+    "jasmine": "^5.1.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
