@@ -6,7 +6,7 @@
   "author": "",
   "license": "ISC",
   "scripts": {
-    "ci": "for dir in bikeService foodService toyService; do (cd $dir && npm install); done",
+    "clnI": "npm install && for dir in bikeService foodService toyService; do (cd $dir && npm install); done",
     "start": "concurrently \"node ./bikeService/bin/www\" \"node ./foodService/bin/www\" \"node ./toyService/bin/www\"",
     "devStart": "concurrently \"nodemon ./bikeService/bin/www\" \"nodemon ./foodService/bin/www\" \"nodemon ./toyService/bin/www\"",
     "test":"concurrently \"npm test --prefix ./bikeService\" \"npm test --prefix ./foodService\" \"npm test --prefix ./toyService\""
@@ -15,6 +15,7 @@
     "concurrently": "^8.2.1",
     "cookie-parser": "^1.4.6",
     "jasmine": "^5.1.0"
+    
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
