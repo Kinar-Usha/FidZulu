@@ -33,7 +33,7 @@ describe("Toys server  endpoint tests", function () {
         it("contains price", (done) => {
             request.get(toys_url, (error, response, body) => {
                 expect(body).toBeTruthy();
-                expect(body).toContain("prize");
+                expect(body).toContain("price");
                 done();
             });
         });

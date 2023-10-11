@@ -17,11 +17,11 @@ router.get('/team', function(req, res, next) {
   }
 });
 
-router.get('/:location', function(req, res, next) {
+router.get('/:location', async function(req, res, next) {
   const param = req.params.location;
   console.log('got into toys/:location ' + param);
 
-  const result = toys.query_by_arg(
+  const result = await toys.query_by_arg(
     param);
   if (result) {
     res.setHeader('content-type', 'application/json');

@@ -3,33 +3,36 @@ const path= require('path');
 const rootPath= path.resolve(__dirname, '../../');
 const filepath=path.join(rootPath, 'resources/Toysjson.json');
 const fs = require('fs');
+const getAllDataFromDynamoDB = require('./daoImpl');
 
-let read_json_file = () =>{
-    return fs.readFileSync(filepath);
-}
 
-exports.list = () =>{
-    return JSON.parse(read_json_file());
-}
 
-exports.query_by_arg = (value) =>{
+exports.query_by_arg = async(value) =>{
     if(value !== "Raleigh" && value!=="Durham"){
         return null;
     }
-    let results = JSON.parse(read_json_file());
-    console.log("Query by location" + value);
-    console.log(results);
-    for(let i =0; i < results.length; i++){
-        console.log(results[i].price);
-        if(value === "Raleigh"){
-            results[i].prize *= 1.075;
-        }else if(value === "Durham"){
-            results[i].prize *= 1.08;
-        }
 
-        results[i].prize = results[i].prize.toFixed(2); 
-    }
+     try {
+    // Use the asynchronous DAO function to get data from DynamoDB
+    const data = await getAllDataFromDynamoDB();
+    console.log(data)
+    // Process the data based on the location value
+    const results = data.map((item) => {
+      const resultItem = { ...item };
+      if (value === 'Raleigh') {
+        resultItem.price *= 1.075;
+      } else if (value === 'Durham') {
+        resultItem.price *= 1.08;
+      }
+      resultItem.price = parseFloat(resultItem.price.toFixed(2));
+      return resultItem;
+    });
+
     return results;
+  } catch (error) {
+    console.error('Error querying data from DynamoDB:', error);
+    return null;
+  }
 }
 
 exports.post_toy = (toys) => {
