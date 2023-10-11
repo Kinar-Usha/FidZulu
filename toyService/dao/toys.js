@@ -1,65 +1,51 @@
 
-const path= require('path');
-const rootPath= path.resolve(__dirname, '../../');
-const filepath=path.join(rootPath, 'resources/Toysjson.json');
+const path = require('path');
+const rootPath = path.resolve(__dirname, '../../');
+const filepath = path.join(rootPath, 'resources/Toysjson.json');
 const fs = require('fs');
 const getAllDataFromDynamoDB = require('./daoImpl');
 
 
 
-exports.query_by_arg = async(value) =>{
-    if(value !== "Raleigh" && value!=="Durham"){
-        return null;
-    }
-
-     try {
-    // Use the asynchronous DAO function to get data from DynamoDB
-    const data = await getAllDataFromDynamoDB();
-    console.log(data)
-    // Process the data based on the location value
-    const results = data.map((item) => {
-      const resultItem = { ...item };
-      if (value === 'Raleigh') {
-        resultItem.price *= 1.075;
-      } else if (value === 'Durham') {
-        resultItem.price *= 1.08;
-      }
-      resultItem.price = parseFloat(resultItem.price.toFixed(2));
-      return resultItem;
-    });
-
-    return results;
-  } catch (error) {
-    console.error('Error querying data from DynamoDB:', error);
+exports.getToys = async (loc) => {
+  if (loc !== "IN" && loc !== "IE" && loc != "US-NC") {
     return null;
   }
-}
-
-exports.post_toy = (toys) => {
-    if (toys.hasOwnProperty("name") && toys.hasOwnProperty("brand") && toys.hasOwnProperty("age_group") &&
-     toys.hasOwnProperty("price") && Object.keys(toys).length == 4) {
-        let results = JSON.parse(read_json_file());
-        results[results.length] = toys;
-        const data = JSON.stringify(results);
-        fs.writeFile("../Resources/Toysjson.json", data, err=>{
-            if(err){
-                console.log("Error writing file" ,err)
-            } else {
-                console.log('JSON data is written to the file successfully')
-            }
-        })
-        return toys;
+  let results = await getAllDataFromDynamoDB();
+  console.log("Location => " + loc);
+  for (let i = 0; i < results.length; i++) {
+    switch (loc) {
+      case "IN":
+        results[i].price *= 1.18;
+        results[i].price = parseFloat(results[i].price.toFixed(2));
+        break;
+      case "US-NC":
+        results[i].price *= 0.012;
+        results[i].price *= 1.08;
+        results[i].price = parseFloat(results[i].price.toFixed(2));
+        break;
+      case "IE":
+        results[i].price *= 0.011;
+        results[i].price *= 1.23;
+        results[i].price = parseFloat(results[i].price.toFixed(2));
+        break;
     }
-    return null;
+
+  }
+  return results;
 }
 
-exports.reset_json = (content) => {
-    const data = JSON.stringify(content);
-        fs.writeFile("../Resources/Toysjson.json", data, err=>{
-            if(err){
-                console.log("Error writing file" ,err)
-            } else {
-                console.log('JSON data is written to the file successfully')
-            }
-        })
+exports.toyServiceTeam = () => {
+  const team = {
+    "name": "Toy Service team",
+    "members": {
+      "member1": "Kinar",
+      "member2": "Vishakha",
+      "member3": "Jitin",
+      "member4": "krishna",
+      "member5": "Saundarya",
+      "member6": "Riddhi"
+    }
+  }
+  return team;
 }

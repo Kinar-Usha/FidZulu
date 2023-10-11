@@ -3,7 +3,7 @@ const app = require('../index');
 var http = require('http');
 
 const base_url = 'http://localhost:3004/';
-const bikes_url = base_url + 'bikes/India';
+const bikes_url = base_url + 'bikes/all/IN';
 const not_found_url = base_url + 'bikes/';
 
 app.set('port', 3004);
