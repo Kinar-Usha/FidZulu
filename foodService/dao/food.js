@@ -2,20 +2,16 @@ const path= require('path');
 const rootPath= path.resolve(__dirname, '../../');
 const filepath=path.join(rootPath, 'resources/Foodjson.json');
 const fs = require('fs');
-let read_json_file = () =>{
-    
-    return fs.readFileSync(filepath);
-}
+const getAllDataFromDynamoDB = require('./daoImpl');
 
-exports.list = () =>{
-    return JSON.parse(read_json_file());
-}
 
-exports.foodByLocation = (loc) =>{
+
+
+exports.foodByLocation = async(loc) =>{
     if(loc !== "IN" && loc!=="IE" && loc!="US-NC"){
         return null;
     }
-    let results = JSON.parse(read_json_file());
+    let results = await getAllDataFromDynamoDB();
     console.log("Location => "+loc);
     for(let i =0; i < results.length; i++){
         switch(loc){

@@ -16,11 +16,11 @@ const food = require("../dao/food");
 //   }
 // });
 
-router.get('/all/:location', function(req, res, next) {
+router.get('/all/:location', async function(req, res, next) {
     const param = req.params.location;
     console.log('got into food/:location ' + param);
   
-    const result = food.foodByLocation(
+    const result = await food.foodByLocation(
       param);
     if (result) {
       res.setHeader('content-type', 'application/json');
