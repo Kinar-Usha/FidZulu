@@ -39,8 +39,12 @@ exports.foodServiceTeam=()=>{
     const team={
         "name":"Food Service team",
         "members":{
-            "member1":"Jitin",
-            "member2":"krishna"
+            "member1":"Kinar",
+            "member2":"Vishakha",
+            "member3":"Jitin",
+            "member4":"krishna",
+            "member5":"Saundarya",
+            "member6":"Riddhi"
         }
     }
     return team;

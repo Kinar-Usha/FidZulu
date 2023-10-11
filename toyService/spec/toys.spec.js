@@ -5,7 +5,7 @@ var http = require('http');
 // Mock your route dependencies
 
 const base_url = 'http://localhost:3001/';
-const toys_url = base_url + 'toys/Raleigh';
+const toys_url = base_url + 'toys/all/IN';
 const not_found_url = base_url + 'toys/';
 
 app.set('port', 3001);
