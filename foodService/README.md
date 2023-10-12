@@ -1,4 +1,4 @@
-- **DynamoDB - Food**: We use DynamoDB to store and manage our food product catalog and have hosted all those data in Amazon EC2 instance. You can find the product data for food in the following regions:
+ **DynamoDB - Food**: We use DynamoDB to store and manage our food product catalog and have hosted all those data in Amazon EC2 instance. You can find the product data for food in the following regions:
 - **Base URL** - ```http://34.228.227.174:3032/foodService/all/<region>```
  There are three endpoints ```IN``` for India, ```US-NC``` for United States, ```IE``` for Ireland region.
   
