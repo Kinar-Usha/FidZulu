@@ -23,7 +23,7 @@ describe("Toys server  endpoint tests", function () {
       server.close(done); // Shutdown the server after tests are complete
     });
     
-    describe("GET /toys/Raleigh", () => {
+    describe("GET /toys/all/IN", () => {
         it("returns status code 200",  (done) => {
             request.get(toys_url, (error, response, body) => {
                 expect(response.statusCode).toBe(200);
