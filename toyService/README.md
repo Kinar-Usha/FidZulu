@@ -6,7 +6,7 @@
    - **USA Region**: [DynamoDB Toys Catalog - US](http://18.232.164.138:3033/toys/all/US-NC)
    - **Ireland Region**: [DynamoDB Toys Catalog - IE](http://18.232.164.138:3033/toys/all/IE)
 
--Sample response for the India region
+-Sample response for Toy Service in India region
 ```
 [
    {
