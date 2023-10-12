@@ -1,0 +1,4 @@
+- **DynamoDB - Toys**: We use DynamoDB to store and manage our toys product catalog. You can find the product data for toys in the following regions:
+   - **India Region**: [DynamoDB Toys Catalog - IN](http://3.27.11.248:3031/bikes/all/IN)
+   - **USA Region**: [DynamoDB Toys Catalog - US](http://3.27.11.248:3031/bikes/all/US-NC)
+   - **Ireland Region**: [DynamoDB Toys Catalog - IE](http://3.27.11.248:3031/bikes/all/IE)

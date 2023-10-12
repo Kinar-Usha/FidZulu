@@ -1,0 +1,4 @@
+- **DynamoDB - Food**: We use DynamoDB to store and manage our food product catalog. You can find the product data for food in the following regions:
+   - **India Region**: [DynamoDB Food Catalog - IN](http://34.228.227.174:3032/foodService/all/IN)
+   - **USA Region**: [DynamoDB Food Catalog - US](http://34.228.227.174:3032/foodService/all/US-NC)
+   - **Ireland Region**: [DynamoDB Food Catalog - IE](http://34.228.227.174:3032/foodService/all/IE)
